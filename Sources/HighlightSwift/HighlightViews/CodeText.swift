@@ -104,6 +104,12 @@ extension CodeText: View {
                 }
                 await highlightText()
             }
+            .onChange(of: attributedText) { _ in
+                task?.cancel()
+                task = Task {
+                    await highlightText()
+                }
+            }
             .onChange(of: mode) { newMode in
                 task?.cancel()
                 task = Task {
