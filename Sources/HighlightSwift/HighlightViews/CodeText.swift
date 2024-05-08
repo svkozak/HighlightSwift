@@ -98,6 +98,7 @@ extension CodeText: View {
     public var body: some View {
         Text(attributedText ?? AttributedString(stringLiteral: text))
             .fontDesign(.monospaced)
+            .layoutPriority(3)
             .task {
                 guard attributedText == nil else {
                     return
