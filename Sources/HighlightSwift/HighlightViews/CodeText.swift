@@ -97,8 +97,9 @@ public struct CodeText {
 extension CodeText: View {
     public var body: some View {
         Text(attributedText ?? AttributedString(stringLiteral: text))
+            .fixedSize(horizontal: false, vertical: true)
             .fontDesign(.monospaced)
-            .layoutPriority(3)
+            .layoutPriority(1)
             .task {
                 guard attributedText == nil else {
                     return
